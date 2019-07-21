@@ -65,6 +65,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "hello.context_processors.type_processor",
             ]
         },
     }
@@ -123,3 +124,4 @@ PUSHER_SECRET=os.environ.get('PUSHER_SECRET')
 PUSHER_CLUSTER=os.environ.get('PUSHER_CLUSTER')
 IPTOEARTH_API_KEY=os.environ.get('IPTOEARTH_API_KEY')
 IPTOEARTH_CLIENT_ID=os.environ.get('IPTOEARTH_CLIENT_ID')
+TYPE=os.environ.get('TYPE', 'development')
