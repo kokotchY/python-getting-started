@@ -117,3 +117,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
 
 django_heroku.settings(locals())
+PUSHER_APP_ID=os.environ.get('PUSHER_APP_ID')
+PUSHER_KEY=os.environ.get('PUSHER_KEY')
+PUSHER_SECRET=os.environ.get('PUSHER_SECRET')
+PUSHER_CLUSTER=os.environ.get('PUSHER_CLUSTER')

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+  <h2>Chat</h2>
+</div>
+<script src="//js.pusher.com/4.4/pusher.min.js"></script>
+<script>
+// If your Heroku application is within the EU region,
+// uncomment the followling lines
+// Pusher.host = 'ws-eu.pusher.com';
+// Pusher.sockjs_host = 'sockjs-eu.pusher.com';
+
+  var pusher = new Pusher('{{key}}'); // uses your APP KEY
+var channel = pusher.subscribe('a_channel');
+channel.bind('an_event', function(data) {
+  alert(data.some);
+});
+</script>
+{% endblock %}
