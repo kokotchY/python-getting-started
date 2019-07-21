@@ -59,3 +59,7 @@ def db(request):
     greetings = Greeting.objects.all()
 
     return render(request, "db.html", {"greetings": greetings})
+
+
+def hello_world(request):
+    return HttpResponse('Hello, World!')

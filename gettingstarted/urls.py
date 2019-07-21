@@ -21,5 +21,6 @@ urlpatterns = [
     path("chat", hello.views.chat, name="chat"),
     path("db/", hello.views.db, name="db"),
     path("who", hello.views.who, name="who"),
+    path("helloworld", hello.views.hello_world, name="hello_world"),
     path("admin/", admin.site.urls),
 ]
