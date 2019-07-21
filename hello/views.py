@@ -14,12 +14,12 @@ from .models import Greeting
 def index(request):
     r = requests.get('http://httpbin.org/status/418')
     print(r.text)
-    return HttpResponse('<pre>' + r.text + '</pre>')
+    return render(request, 'message.html', {'text': r.text})
 
 
 def hello(request):
     times = int(os.environ.get('TIMES', 3))
-    return HttpResponse('Hello! ' * times)
+    return render(request, 'message.html', {'text': 'Hello! ' * times})
 
 
 def bla(request):
@@ -27,7 +27,7 @@ def bla(request):
         app_id=settings.PUSHER_APP_ID, key=settings.PUSHER_KEY, secret=settings.PUSHER_SECRET, cluster=settings.PUSHER_CLUSTER)
     pusher_client.trigger(u'a_channel', u'an_event', {
                           u'some': u'you look nice'})
-    return HttpResponse('Message sent')
+    return render(request, 'message.html', {'text': 'Message sent'})
 
 
 def chat(request):
@@ -48,7 +48,7 @@ def who(request):
         'ip': get_client_ip(request),
     }
     res = requests.get(url, params=params)
-    return HttpResponse(res.text)
+    return render(request, 'message.html', {'text': res.text})
 
 
 def db(request):
