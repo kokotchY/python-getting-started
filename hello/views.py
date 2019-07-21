@@ -42,7 +42,13 @@ def get_client_ip(request):
     return ip
 
 def who(request):
-    return HttpResponse(get_client_ip(request))
+    url = 'https://iptoearth.expeditedaddons.com'
+    params = {
+        'api_key': settings.IPTOEARTH_API_KEY,
+        'ip': get_client_ip(request),
+    }
+    res = requests.get(url, params=params)
+    return HttpResponse(res.text)
 
 
 def db(request):
